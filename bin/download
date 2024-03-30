@@ -24,8 +24,6 @@ arch="$(arch_name)"
 try_mv() {
 	if [ -f "$1" ]; then
 		mv "$1" "$2"
-	else
-		# echo "File $1 does not exist"
 	fi
 }
 
