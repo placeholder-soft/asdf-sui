@@ -10,8 +10,7 @@ source "${plugin_dir}/lib/utils.bash"
 
 mkdir -p "$ASDF_DOWNLOAD_PATH"
 
-# TODO: Adapt this to proper extension and adapt extracting strategy.
-release_file="$ASDF_DOWNLOAD_PATH/$TOOL_NAME-$ASDF_INSTALL_VERSION.tar.gz"
+release_file="$ASDF_DOWNLOAD_PATH/$TOOL_NAME-$ASDF_INSTALL_VERSION.tgz"
 
 # Download tar.gz file to the download directory
 download_release "$ASDF_INSTALL_VERSION" "$release_file"
@@ -19,5 +18,32 @@ download_release "$ASDF_INSTALL_VERSION" "$release_file"
 #  Extract contents of tar.gz file into the download directory
 tar -xzf "$release_file" -C "$ASDF_DOWNLOAD_PATH" --strip-components=1 || fail "Could not extract $release_file"
 
+os="$(os_name)"
+arch="$(arch_name)"
+
+try_mv() {
+	if [ -f "$1" ]; then
+		mv "$1" "$2"
+	else
+		# echo "File $1 does not exist"
+	fi
+}
+
+extract_path="$ASDF_DOWNLOAD_PATH"
+mkdir -p $extract_path
+
+try_mv $ASDF_DOWNLOAD_PATH/target/release/sui-bridge-$os-$arch $extract_path/sui-bridge
+try_mv $ASDF_DOWNLOAD_PATH/target/release/sui-data-ingestion-$os-$arch $extract_path/sui-data-ingestion
+try_mv $ASDF_DOWNLOAD_PATH/target/release/sui-faucet-$os-$arch $extract_path/sui-faucet
+try_mv $ASDF_DOWNLOAD_PATH/target/release/sui-$os-$arch $extract_path/sui
+try_mv $ASDF_DOWNLOAD_PATH/target/release/sui-node-$os-$arch $extract_path/sui-node
+try_mv $ASDF_DOWNLOAD_PATH/target/release/sui-test-validator-$os-$arch $extract_path/sui-test-validator
+try_mv $ASDF_DOWNLOAD_PATH/target/release/sui-tool-$os-$arch $extract_path/sui-tool
+try_mv $ASDF_DOWNLOAD_PATH/target/release/sui-indexer-$os-$arch $extract_path/sui-indexer
+try_mv $ASDF_DOWNLOAD_PATH/external-crates/move/target/release/move-analyzer-$os-$arch $extract_path/move-analyzer
+
 # Remove the tar.gz file since we don't need to keep it
 rm "$release_file"
+
+rm -rf "$ASDF_DOWNLOAD_PATH/external-crates"
+rm -rf "$ASDF_DOWNLOAD_PATH/target"

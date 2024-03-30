@@ -1,6 +1,6 @@
 <div align="center">
 
-# asdf-sui [![Build](https://github.com/caoer/asdf-sui/actions/workflows/build.yml/badge.svg)](https://github.com/caoer/asdf-sui/actions/workflows/build.yml) [![Lint](https://github.com/caoer/asdf-sui/actions/workflows/lint.yml/badge.svg)](https://github.com/caoer/asdf-sui/actions/workflows/lint.yml)
+# asdf-sui [![Build](https://github.com/placeholder-soft/asdf-sui/actions/workflows/build.yml/badge.svg)](https://github.com/placeholder-soft/asdf-sui/actions/workflows/build.yml) [![Lint](https://github.com/placeholder-soft/asdf-sui/actions/workflows/lint.yml/badge.svg)](https://github.com/placeholder-soft/asdf-sui/actions/workflows/lint.yml)
 
 [sui](https://github.com/placeholder-soft/asdf-sui) plugin for the [asdf version manager](https://asdf-vm.com).
 
@@ -15,10 +15,7 @@
 
 # Dependencies
 
-**TODO: adapt this section**
-
 - `bash`, `curl`, `tar`, and [POSIX utilities](https://pubs.opengroup.org/onlinepubs/9699919799/idx/utilities.html).
-- `SOME_ENV_VAR`: set this environment variable in your shell config to load the correct version of tool x.
 
 # Install
 
@@ -27,7 +24,7 @@ Plugin:
 ```shell
 asdf plugin add sui
 # or
-asdf plugin add sui https://github.com/caoer/asdf-sui.git
+asdf plugin add sui https://github.com/placeholder-soft/asdf-sui.git
 ```
 
 sui:
@@ -53,8 +50,8 @@ install & manage versions.
 
 Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
-[Thanks goes to these contributors](https://github.com/caoer/asdf-sui/graphs/contributors)!
+[Thanks goes to these contributors](https://github.com/placeholder-soft/asdf-sui/graphs/contributors)!
 
 # License
 
-See [LICENSE](LICENSE) © [Zitao Xiong](https://github.com/caoer/)
+See [LICENSE](LICENSE) © [Zitao Xiong](https://github.com/placeholder-soft/)
