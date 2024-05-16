@@ -43,11 +43,15 @@ os_name() {
 
 # arm64, x86_64
 arch_name() {
-	case "$(uname -m)" in
-	arm64) echo "arm64" ;;
-	x86_64) echo "x86_64" ;;
-	*) echo "unknown" ;;
-	esac
+    if [ -n "$ARCH_OVERWRITE" ]; then
+        echo "$ARCH_OVERWRITE"
+    else
+        case "$(uname -m)" in
+            arm64) echo "arm64" ;;
+            x86_64) echo "x86_64" ;;
+            *) echo "unknown" ;;
+        esac
+    fi
 }
 
 download_release() {
