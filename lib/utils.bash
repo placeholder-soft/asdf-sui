@@ -43,7 +43,7 @@ os_name() {
 
 # arm64, x86_64
 arch_name() {
-    if [ -n "$ARCH_OVERWRITE" ]; then
+    if [ -n "$ARCH_OVERWRITE:-" ]; then
         echo "$ARCH_OVERWRITE"
     else
         case "$(uname -m)" in
